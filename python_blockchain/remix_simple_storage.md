@@ -100,11 +100,10 @@ contract SimpleStorage {
 
 [vm]from: 0x5B3...eddC4to: SimpleStorage.(constructor)value: 0 weidata: 0x608...60033logs: 0hash: 0x7ad...a4733
 
-![Alt text](<../Screenshot 2024-01-25 113009.png>)
+![Alt text](<../images/Screenshot 2024-01-25 113009.png>)
 
 ### Calling a Public State-Changing Function
 
-![Alt text](image.png)
 
 Any time we want to make a state change on the blockchain, pay some gas. Like this store function
 
@@ -121,7 +120,7 @@ How do we actually see our favoriteNumber from favoriteNumber function?
     1. favoriteNumber -> initialized to 0
     2. store function
 
-![Alt text](<Screenshot 2024-01-25 113728.png>)
+![Alt text](<../images/Screenshot 2024-01-25 113728.png>)
 
 'Public' keyword defines visibility of the variable or the function.
 
@@ -188,8 +187,8 @@ Why is 'store' orange, and favoriteNumber and retrieve blue?
 
 - View/Pure define functions, but don't need to have a transaction made
 
-View: read some state off the blockchain
-Public: also 'view' functions
+- View: read some state off the blockchain
+- Public: also 'view' functions
 
 Can click to view and read the state off the blockchain.
 
@@ -233,7 +232,8 @@ People public person = People({favoriteNumber: 7, name: "Sky"})
 ```
 
 ~Click 'person' struct
-![Alt text](<../Screenshot 2024-01-25 121224.png>)
+
+![Alt text](<../images/Screenshot 2024-01-25 121224.png>)
 
 - index 0: favoriteNumber
 - index 1: name
@@ -282,7 +282,7 @@ function addPerson(string memory _name, uint256 _favoriteNumber) public {
 
 Solidity has 2 ways to store information:
 1. Memory: data will only be stored during execution of the function or contract call
-2. Storage: data persists even after the functino executes
+2. Storage: data persists even after the function executes
 
 STRINGS are actually not value types, they're an ARRAY of BYTES.
 
@@ -292,9 +292,10 @@ When you use a parameter that's going to be a string from one of our functions, 
 
 Now we have a new function 'addPerson'. Since it's a state change, its an orange button, and we can add a str name.
 
-![Alt text](<../Screenshot 2024-01-25 174607.png>)
 
-Add person -> give index to 'people'? (0) -> person at 0 indes is Sky
+![Alt text](<../images/Screenshot 2024-01-25 174607.png>)
+
+Add person -> give index to 'people'? (0) -> person at 0 index is Sky
 
 Continue adding people (state change addPerson)
 - Zara, 5 (now at index 1)
@@ -347,14 +348,14 @@ contract SimpleStorage {
 2. Hit addPerson, enter "Zara",4
 3. Hit nameToFavoriteNumber function (blue)
 
-![Alt text](<../Screenshot 2024-01-25 180222.png>)
+![Alt text](<../images/Screenshot 2024-01-25 180222.png>)
 
 ### SPDX License Identifier
 Standard operating procedure. MIT is open, anyone can use for anything.
 
 ## Deployment
 
-How do we actually employ this so other people can use this contract?
+How do we actually deploy this so other people can use this contract?
 
 [https://docs.chain.link/resources/link-token-contracts]
 
@@ -367,7 +368,7 @@ How do we actually employ this so other people can use this contract?
 4. Confirm in MetaMask
 5. Get link in terminal to etherscan
 
-![Alt text](<../Screenshot 2024-01-25 181413.png>)
+![Alt text](<../images/Screenshot 2024-01-25 181413.png>)
 
 We've made a transaction on the blockchain to create a contract.
 
