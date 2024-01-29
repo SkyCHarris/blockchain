@@ -11,3 +11,12 @@ Framework. Set of tools allowing you to create smart contracts, saving time on r
 Step -> Go from browser-based development to local development
 
 #### Download Node.js
+
+1. Install node.js
+2. Install hardhat
+    - npm install --save-dev hardhat
+    - npm init (in project folder)
+    - npx hardhat
+3. Create a JavaScript project
+
+<i>Note: npx is a command that let's us run executables from nodemodules directory. ex. npx run</i>
