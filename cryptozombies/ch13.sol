@@ -39,31 +39,34 @@ pragma solidity >=0.5.0 <0.6.0;
 
 contract ZombieFactory {
 
-    // declare our event here
+    // event that front-end can listen for
     event NewZombie(uint zombieId, string name, uint dna);
 
-
+    // variables to store dna hexadecimal
     uint dnaDigits = 16;
     uint dnaModulus = 10 ** dnaDigits;
 
+    // zombie object
     struct Zombie {
         string name;
         uint dna;
     }
 
+    // dynamic zombies array
     Zombie[] public zombies;
 
     function _createZombie(string memory _name, uint _dna) private {
-        uint id = zombies.push(Zombie(_name, _dna)) -1;
-        // and fire it here
+        uint id = zombies.push(Zombie(_name, _dna)) -1; // not sure :(
         emit NewZombie(id, _name, _dna);
     }
 
+    // generate random dna hexadecimal
     function _generateRandomDna(string memory _str) private view returns (uint) {
         uint rand = uint(keccak256(abi.encodePacked(_str)));
         return rand % dnaModulus;
     }
 
+    // create zombie
     function createRandomZombie(string memory _name) public {
         uint randDna = _generateRandomDna(_name);
         _createZombie(_name, randDna);
