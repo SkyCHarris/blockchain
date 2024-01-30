@@ -210,3 +210,35 @@ IS NOW:
 - Inheritance
 - Deploy contracts from our contract
 - Interat with diff. contracts from outside of our contract
+
+```js
+// SPDX-License-Identifier: MIT
+
+pragma solidity ^0.8.0;
+
+import "./SimpleStorage.sol";
+
+contract StorageFactory is SimpleStorage {
+
+    SimpleStorage[] public simpleStorageArray;  // keeps track of all the simpleStorage contacts we deploy
+
+    // create an array of simpleStorage contracts?
+    function createSimpleStorageContract() public {
+        SimpleStorage simpleStorage = new SimpleStorage();  // type: SimpleStorage, name: simpleStorage (it's a keyword now?) [create an object of type SimpleStorage contract, named simpleStorage, = is a new SimpleStorage() contract with no input parametersj
+        simpleStorageArray.push(simpleStorage); // pushes simpleStorage contract to array
+    }
+
+    // choose which simpleStorage contract in list we want to interact with, then simpleStorageNumber to call on store function
+    function sfStore(uint256 _simpleStorageIndex, uint256 _simpleStorageNumber) public{
+        // Address
+        // ABI
+        SimpleStorage(address(simpleStorageArray[_simpleStorageIndex])).store(_simpleStorageNumber); // get simpleStorage contract by index, store favorite number
+    }
+
+    // access retrieve function, get favorite num
+    function sfGet(uint256 _simpleStorageIndex) public view returns (uint256) {
+        return SimpleStorage(address(simpleStorageArray[_simpleStorageIndex])).retrieve();
+    }
+
+}
+```
